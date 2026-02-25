@@ -10,11 +10,11 @@ export class LoginPage {
 
   constructor(page: Page) {
     this.page = page
-    this.loginHeading = page.locator('h1.text-center')
+    this.loginHeading = page.getByRole('heading', { name: 'Login', exact: true })
     this.usernameInput = page.locator('input[id="userName"]')
     this.passwordInput = page.locator('input[id="password"]')
-    this.loginButton = page.locator('button#login')
-    this.errorMessage = page.locator('text=Invalid username or password!')
+    this.loginButton = page.getByRole('button', { name: /login/i })
+    this.errorMessage = page.getByText(/invalid username or password/i)
   }
 
   async navigateToLogin() {

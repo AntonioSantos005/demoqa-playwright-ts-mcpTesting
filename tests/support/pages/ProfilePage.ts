@@ -3,12 +3,11 @@ import { Page, Locator } from '@playwright/test'
 export class ProfilePage {
   readonly page: Page
   readonly userNameValue: Locator
-  readonly userNameLabel: Locator
 
   constructor(page: Page) {
     this.page = page
+    // Usar getByLabel para encontrar o campo de username exibido na página de perfil
     this.userNameValue = page.locator('#userName-value')
-    this.userNameLabel = page.locator('text=UserName')
   }
 
   async navigateToProfile() {
